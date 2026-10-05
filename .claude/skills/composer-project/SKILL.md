@@ -1,11 +1,11 @@
 ---
-name: image-blast-project
-description: Create, inspect, and manage an IMAGE-BLAST project envelope under worlds/<slug>. Use before other image-blast skills (image-blast-uncover, image-blast-world, image-blast-3d, etc.) or whenever the user asks about active project state.
+name: composer-project
+description: Create, inspect, and manage an IMAGE3D COMPOSER project envelope under worlds/<slug>. Use before other composer skills (composer-uncover, composer-world, composer-3d, etc.) or whenever the user asks about active project state.
 argument-hint: [world-name or description] [optional instructions]
 allowed-tools: Read Write Glob Bash(ls *) Bash(node .claude/scripts/project/project-state.mjs *) Bash(node .claude/scripts/project/indexed-path.mjs *) Bash(node .claude/scripts/project/download.mjs *) Bash(node .claude/scripts/project/ensure-local-assets.mjs *) Bash(node .claude/scripts/project/delete.mjs *)
 ---
 
-Create or inspect an Image Blast project. Input: `$ARGUMENTS`.
+Create or inspect an image3D Composer project. Input: `$ARGUMENTS`.
 
 ## Instructions
 
@@ -38,7 +38,7 @@ worlds/<slug>/
     <object-slug>/
 ```
 
-Only minimal `project.json` and directories are created automatically. `/image-blast-uncover` writes per-image `source/<image-name>.json` and root `image.json`, then waits for user confirmation before writing per-object `output/<object-slug>/object.json` files.
+Only minimal `project.json` and directories are created automatically. `/composer-uncover` writes per-image `source/<image-name>.json` and root `image.json`, then waits for user confirmation before writing per-object `output/<object-slug>/object.json` files.
 
 4. Read the printed project state or `worlds/<slug>/project.json`.
 5. Report:
@@ -51,11 +51,11 @@ Only minimal `project.json` and directories are created automatically. `/image-b
    - derived object count
    - whether world-level SFX exists
    - whether `scene.json` exists
-6. If source images now exist and `image.json` is missing, continue directly with the `/image-blast-uncover` workflow for no-cost image analysis and object directory creation. If no source images exist and the user needs to add images, report the `input/` path and ask them to add files there.
+6. If source images now exist and `image.json` is missing, continue directly with the `/composer-uncover` workflow for no-cost image analysis and object directory creation. If no source images exist and the user needs to add images, report the `input/` path and ask them to add files there.
 
 7. Recommend downstream actions only after no-cost setup/analysis is complete, in this order:
-   - `Agent(image-blast-plate)` for clean plate/source cleanup after object confirmation, when requested or one-shotting
-   - `Agent(image-blast-world)` for static 3D environment world generation
-   - `Agent(image-blast-3d)` per object 3D generation
-   - `Agent(image-blast-sfx)` for ambient, object-impact, or arbitrary sound effects
-   - `Agent(image-blast-image-edit)` for generic standalone prompt-based image editing
+   - `Agent(composer-plate)` for clean plate/source cleanup after object confirmation, when requested or one-shotting
+   - `Agent(composer-world)` for static 3D environment world generation
+   - `Agent(composer-3d)` per object 3D generation
+   - `Agent(composer-sfx)` for ambient, object-impact, or arbitrary sound effects
+   - `Agent(composer-image-edit)` for generic standalone prompt-based image editing

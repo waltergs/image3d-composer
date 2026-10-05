@@ -1,19 +1,19 @@
 ---
-description: Cursor-only development guidance for the IMAGE-BLASTER repository
+description: Cursor-only development guidance for the IMAGE3D COMPOSER repository
 alwaysApply: true
 ---
 
-# IMAGE-BLASTER Development
+# IMAGE3D COMPOSER Development
 
 - This Cursor rule is for repository development in Cursor only. Do not mirror this into root `CLAUDE.md`; Claude Code end users should consume `.claude/rules/project.md` and `.claude/skills/*/SKILL.md`.
-- IMAGE-BLASTER has two main parts:
+- IMAGE3D COMPOSER has two main parts:
   - Claude Skills in `.claude/skills/`, backed by scripts in `.claude/scripts/`.
   - The React viewer in `app/`, built with TypeScript, Vite, React Three Fibre, SparkJS, Leva, Wouter, and Tailwind CSS.
 - The shared working area is `worlds/`, and staged user input starts in `input/`. Both are gitignored.
-- The canonical Image Blast file convention lives in `.claude/rules/project.md`. Keep generated state simple: `ls -a` first, visible indexed artifacts for outputs, hidden request JSON for request/resume details.
+- The canonical image3D Composer file convention lives in `.claude/rules/project.md`. Keep generated state simple: `ls -a` first, visible indexed artifacts for outputs, hidden request JSON for request/resume details.
 - Environment keys:
-  - `WORLD_LABS_API_KEY` for `/image-blast-world`.
-  - `FAL_KEY` for `/image-blast-3d`, `/image-blast-sfx`, and FAL-backed image editing.
+  - `WORLD_LABS_API_KEY` for `/composer-world`.
+  - `FAL_KEY` for `/composer-3d`, `/composer-sfx`, and FAL-backed image editing.
 - The repository root is the Bun workspace root. Run package-manager commands from the root; do not create ad hoc root dependencies outside the workspace.
   - `bun install`
   - `bun run dev`

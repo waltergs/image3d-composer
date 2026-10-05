@@ -95,7 +95,7 @@ export function WorldSidebar({
           aria-expanded={compact ? undefined : menuOpen}
         >
           {!compact && <ListIcon size={16} weight="regular" className="text-white/60 sm:hidden" />}
-          <span>image-blaster</span>{activeSlug && <span className="text-white/40 sm:hidden md:hidden">/ {activeSlug}</span>}
+          <span>image3D Composer</span>{activeSlug && <span className="text-white/40 sm:hidden md:hidden">/ {activeSlug}</span>}
         </AppButton>
         <AppButton
           onClick={() => setButterfliesEnabled(!butterfliesEnabled)}
@@ -108,11 +108,11 @@ export function WorldSidebar({
           <ButterflyIcon size={16} weight={butterfliesEnabled ? 'fill' : 'regular'} />
         </AppButton>
         <a
-          href="https://github.com/neilsonnn/image-blaster"
+          href="https://github.com/waltergs/image3d-composer"
           target="_blank"
           rel="noreferrer"
           className="inline-flex h-7 w-7 items-center justify-center rounded p-1 text-white opacity-80 transition-[background-color,opacity] hover:bg-white/10 hover:opacity-100"
-          aria-label="Open image-blaster repository"
+          aria-label="Open image3D Composer repository"
         >
           <span className="text-sm leading-none"><QuestionMarkIcon size={16} weight="regular" /></span>
         </a>

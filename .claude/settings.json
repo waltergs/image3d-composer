@@ -1,14 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Skill(image-blast-project)",
-      "Skill(image-blast-uncover)",
-      "Skill(image-blast-world)",
-      "Skill(image-blast-3d)",
-      "Skill(image-blast-sfx)",
-      "Skill(image-blast-plate)",
-      "Skill(image-blast-image-edit)",
-      "Skill(image-blast-wildcard)",
+      "Skill(composer-project)",
+      "Skill(composer-uncover)",
+      "Skill(composer-world)",
+      "Skill(composer-3d)",
+      "Skill(composer-sfx)",
+      "Skill(composer-plate)",
+      "Skill(composer-image-edit)",
+      "Skill(composer-wildcard)",
       "Bash(ls:*)",
       "Bash(node .claude/scripts/**:*)",
       "Bash(node .claude/scripts/project/show-url.mjs:*)",

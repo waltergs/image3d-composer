@@ -1,5 +1,5 @@
 {
-  "name": "image-blaster-workspace",
+  "name": "image3d-composer-workspace",
   "private": true,
   "workspaces": [
     "app"

@@ -1,17 +1,17 @@
 ---
-name: image-blast-plate
-description: Runs one Image Blast clean plate/source cleanup request in the background. Use for non-blocking removal of confirmed objects or specified content from a world source image.
+name: composer-plate
+description: Runs one image3D Composer clean plate/source cleanup request in the background. Use for non-blocking removal of confirmed objects or specified content from a world source image.
 tools: Read, Write, Glob, Bash
 model: inherit
 background: true
 skills:
-  - image-blast-plate
-  - image-blast-image-edit
+  - composer-plate
+  - composer-image-edit
 ---
 
 Run exactly one clean plate/source cleanup request.
 
-Follow the preloaded `image-blast-plate` skill. Use the preloaded `image-blast-image-edit` skill as the generic image edit step inside the plate workflow.
+Follow the preloaded `composer-plate` skill. Use the preloaded `composer-image-edit` skill as the generic image edit step inside the plate workflow.
 
 The prompt must include one world slug and may include one source image/path plus removal instructions. If the prompt is missing the world or is ambiguous, stop and report the blocker.
 

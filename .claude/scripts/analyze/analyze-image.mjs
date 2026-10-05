@@ -141,7 +141,7 @@ async function analyzeOneImage({ imagePath, world, model, instructions, rules, a
       dry_run: true,
       model,
       image: relative,
-      image_bytes: parts[0].inline_data.data.length,
+      image_bytes: Buffer.byteLength(parts[0].inline_data.data, "base64"),
       system_instruction_chars: systemInstruction.length,
       schema_properties: Object.keys(IMAGE_ANALYSIS_SCHEMA.properties)
     };

@@ -2,7 +2,7 @@
 name: composer-uncover
 description: Main image analysis skill, object generation, plate decisionmaking, and initial scene description. Use this skill when user wants to create objects and necessary for main image analysis.  
 argument-hint: [world-name] [optional image paths or instructions]
-allowed-tools: Read Write Glob Bash(ls *) Bash(node .claude/scripts/project/project-state.mjs *)
+allowed-tools: Read Write Glob Bash(ls *) Bash(node .claude/scripts/project/project-state.mjs *) Bash(node .claude/scripts/analyze/analyze-image.mjs *)
 ---
 
 Uncover literal image information for project `$0`. Additional image paths or instructions may appear in `$ARGUMENTS`.
@@ -84,6 +84,22 @@ node .claude/scripts/project/project-state.mjs --world "$0"
 ```
 
 13. Report saved paths, source image count, per-image JSON count, created/updated object directory count, and the clean plate decision.
+
+## Scripted Analysis (Gemini, optional)
+
+Use this instead of steps 4-7 when the user asks for Gemini, or does not want the agent reading images itself, and `GEMINI_API_KEY` is set in `.env`. The script follows `COMPOSER.md`, writes the per-image JSON files and the root `image.json`, and prints the object candidates:
+
+```bash
+node .claude/scripts/analyze/analyze-image.mjs --world "$0"
+```
+
+Add `--instructions "<user guidance>"` for extra guidance, `--force` to redo an existing analysis, `--model <id>` to switch models, or `--dry-run` to preview without calling the API. Then continue at step 8 (present the analysis and wait for confirmation). After the user approves objects, write the object files with `--confirm-objects all` or a comma-separated list of object ids:
+
+```bash
+node .claude/scripts/analyze/analyze-image.mjs --world "$0" --confirm-objects all
+```
+
+Gemini free-tier requests may be used by Google to improve its products. Warn the user before sending private images unless they use a paid-tier key.
 
 ## Output Locations
 

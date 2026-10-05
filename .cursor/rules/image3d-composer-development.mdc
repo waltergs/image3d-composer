@@ -14,6 +14,7 @@ alwaysApply: true
 - Environment keys:
   - `WORLD_LABS_API_KEY` for `/composer-world`.
   - `FAL_KEY` for `/composer-3d`, `/composer-sfx`, and FAL-backed image editing.
+  - `GEMINI_API_KEY` (optional) for scripted image analysis in `/composer-uncover`.
 - The repository root is the Bun workspace root. Run package-manager commands from the root; do not create ad hoc root dependencies outside the workspace.
   - `bun install`
   - `bun run dev`

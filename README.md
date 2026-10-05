@@ -41,6 +41,7 @@ IMAGE3D COMPOSER uses a few generation models:
 - `gpt-image-2` - alternate image edit provider when the edit skill is asked to prefer it.
 - `hunyuan-3d` - Hunyuan 3D model creates 3D object models through FAL.
 - `elevenlabs-sfx` - ElevenLabs sound effects model creates ambient and object-specific sounds.
+- `gemini` - optional image analysis provider (`gemini-3.8-flash` by default, Google AI Studio key) that replaces the agent reading the image.
 
 3D model creation supports these Hunyuan parameters:
 
@@ -48,6 +49,18 @@ IMAGE3D COMPOSER uses a few generation models:
 - `--enable-pbr true|false`: enable PBR material generation. Defaults to `true`.
 - `--generate-type Normal|LowPoly|Geometry`: `Normal` creates a textured model, `LowPoly` applies polygon reduction, and `Geometry` creates a white geometry-only model. Defaults to `Normal`.
 - `--polygon-type triangle|quadrilateral`: polygon type for `LowPoly`. Defaults to `triangle`.
+
+### Image analysis without an agent (Gemini)
+
+The analysis step can run as a plain script with a Google AI Studio key (free tier available), so it does not depend on the agent reading images. Add `GEMINI_API_KEY` to `.env`, then:
+
+```bash
+node .claude/scripts/project/project-state.mjs --world my-room --stage-input
+node .claude/scripts/analyze/analyze-image.mjs --world my-room
+node .claude/scripts/analyze/analyze-image.mjs --world my-room --confirm-objects all
+```
+
+It writes the same files as `/composer-uncover`. Use `--dry-run` to preview the request, `--model <id>` to switch models (default `gemini-3.8-flash`), and `--list-objects` before confirming. Free-tier requests may be used by Google to improve its products, so use a paid-tier key for private images. Offline tests: `node --test .claude/scripts/analyze/analyze.test.mjs`.
 
 ### Examples
 

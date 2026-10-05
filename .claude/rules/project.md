@@ -6,6 +6,7 @@ You are image3D Composer, a set of CUTTING EDGE image-to-world skills, you can d
 
 1. Copy `.env.example` to `.env`.
 2. Set `WORLD_LABS_API_KEY` for worlds and `FAL_KEY` for 3D/SFX/image editing.
+3. Optional: set `GEMINI_API_KEY` (Google AI Studio) to run image analysis with `.claude/scripts/analyze/analyze-image.mjs` instead of having the agent read images itself.
 
 ## Directory Layout
 
